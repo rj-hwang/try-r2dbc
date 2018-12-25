@@ -36,5 +36,11 @@ public class ReservationRepositoryTest {
     StepVerifier.create(all)
       .expectNextCount(3)
       .verifyComplete();
+
+    // findByName
+    Flux<Reservation> first = this.reservationRepository.findByName("first");
+    StepVerifier.create(first)
+      .expectNextCount(1)
+      .verifyComplete();
   }
 }
